@@ -1,0 +1,105 @@
+// variables
+$veryDarkBlue: hsl(220, 13%, 13%);
+$darkGrayishBlue: hsl(219, 9%, 45%);
+$grayishBlue: hsl(220, 14%, 75%);
+$lightGrayishBlue: hsl(223, 64%, 98%);
+$white: hsl(0, 0%, 100%);
+$orange: hsl(26, 100%, 55%);
+$paleOrange: hsl(25, 100%, 94%);
+
+//Mixins
+@mixin sliderStyles(
+  $btnSidePos,
+  $btnTopPos,
+  $lgImgWd,
+  $borderRad,
+  $thumbNails
+) {
+  .lgImg {
+    position: relative;
+    width: $lgImgWd;
+    height: 50vh;
+    border-radius: $borderRad;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    .prv,
+    .nxt {
+      height: 45px;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: $btnTopPos;
+      transform: translateY(-#{$btnTopPos});
+      color: #000;
+      border-radius: 50%;
+      background: $white;
+      z-index: 2;
+      cursor: pointer;
+
+      &.prv {
+        left: $btnSidePos;
+
+        svg {
+          transform: translateX(-25%);
+        }
+      }
+
+      &.nxt {
+        right: $btnSidePos;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .thumbNails {
+    width: 90%;
+    display: $thumbNails;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+
+    .curThumb {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        border-radius: 10px;
+        top: 0;
+        left: 0;
+      }
+
+      &:hover::after {
+        background: rgba(204, 204, 204, 0.637);
+      }
+
+      &.clicked {
+        box-shadow: 0 0 0 2px $orange;
+
+        &::after {
+          background: rgba(204, 204, 204, 0.637);
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+  }
+}

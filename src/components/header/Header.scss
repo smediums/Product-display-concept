@@ -1,0 +1,126 @@
+header {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 60px;
+  width: 100%;
+  padding: 0 1.5rem;
+  background: rgba(255, 255, 255, 0.858);
+  backdrop-filter: blur(5px);
+  z-index: 4;
+
+  &.showNav {
+    nav {
+      visibility: visible;
+
+      svg {
+        left: 0.5rem;
+      }
+      ul {
+        transform: translateX(0);
+        transition: 0.2s ease;
+      }
+    }
+  }
+
+  .hamMenu,
+  svg,
+  .logo,
+  .cartIcon,
+  img {
+    cursor: pointer;
+
+    &.hamMenu {
+      margin-right: 1rem;
+    }
+  }
+  .headerLeft,
+  .headerRight {
+    display: flex;
+    align-items: center;
+
+    &.headerRight {
+      justify-content: flex-end;
+    }
+  }
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    z-index: 5;
+
+    svg {
+      position: absolute;
+      transform: scale(1.3);
+      top: 1.5rem;
+      left: 100%;
+      padding: 1rem;
+      z-index: 1;
+    }
+
+    ul {
+      width: 65%;
+      height: 100%;
+      background: $white;
+      padding: 5rem 0;
+      transform: translateX(-100%);
+
+      li {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 1.4rem 0;
+        border-right: 6px solid transparent;
+
+        &:hover {
+          border-color: $orange;
+        }
+
+        a {
+          color: #000;
+          display: block;
+          padding: 0.8rem 0 0.6rem 1.5rem;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .cartIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .numOfItems {
+      position: absolute;
+      top: -50%;
+      right: -.5rem;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: $orange;
+      font-size: 0.7rem;
+      text-align: center;
+      color: $lightGrayishBlue;
+      // visibility: hidden;
+
+      &.show{
+        visibility: visible;
+      }
+    }
+  }
+
+  img {
+    width: 40px;
+    margin-left: 1rem;
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: 0 0 0 2px $orange;
+    }
+  }
+}

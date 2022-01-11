@@ -1,0 +1,130 @@
+.itemInfo {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 60px;
+
+  @include sliderStyles(1.3rem, 50%, 100vw, 0, none);
+
+  .overview {
+    padding: 0 1.5rem 2.5rem;
+    position: relative;
+    
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1.5rem;
+      position: absolute;
+      top: -3.5rem;
+      left: 0;
+      border-radius: 15px 15px 0 0;
+      background: #fff;
+    }
+
+    .companyName {
+      text-transform: uppercase;
+      color: $orange;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .itemTitle {
+      font-size: 2rem;
+      color: $darkGrayishBlue;
+    }
+
+    .itemDesc {
+      width: 95%;
+      font-size: 1.2rem;
+      color: $darkGrayishBlue;
+      opacity: 0.5;
+      line-height: 1.5;
+      margin: 1.1rem 0 1.4rem;
+    }
+
+    .price {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0.5rem 0;
+      margin-bottom: 1.7rem;
+
+      * {
+        align-self: center;
+      }
+
+      .curPrice {
+        position: relative;
+        color: $darkGrayishBlue;
+        font-size: 1.7rem;
+        letter-spacing: 1px;
+        justify-self: start;
+
+        &::after {
+          content: "50%";
+          color: $orange;
+          font-size: 1rem;
+          padding: 0.2rem 0.4rem;
+          border-radius: 5px;
+          background: $paleOrange;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 120%;
+        }
+      }
+
+      .prevPrice {
+        position: relative;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        color: $darkGrayishBlue;
+        opacity: 0.5;
+        justify-self: end;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background: $darkGrayishBlue;
+          position: absolute;
+          left: 0;
+          top: 50%;
+        }
+      }
+    }
+
+    .itemNum {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: $lightGrayishBlue;
+      padding: 0 1.2rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+
+      .plus,
+      .minus {
+        height: 100%;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+
+    .addToCart {
+      @extend .itemNum;
+      justify-content: center;
+      background: $orange;
+      color: $lightGrayishBlue;
+      box-shadow: 0 12px 14px $paleOrange;
+
+      svg {
+        margin-right: 0.6rem;
+      }
+    }
+  }
+}
