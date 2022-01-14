@@ -18,6 +18,7 @@ $paleOrange: hsl(25, 100%, 94%);
   .lgImg {
     position: relative;
     width: $lgImgWd;
+    max-width: 1000px;
     height: 50vh;
     border-radius: $borderRad;
     margin-bottom: 2rem;
@@ -62,6 +63,7 @@ $paleOrange: hsl(25, 100%, 94%);
 
   .thumbNails {
     width: 90%;
+    max-width: 400px;
     display: $thumbNails;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 1rem;
@@ -100,6 +102,46 @@ $paleOrange: hsl(25, 100%, 94%);
         height: 100%;
         border-radius: 10px;
       }
+    }
+  }
+
+  @include responsive((tablet)) {
+    .lgImg {
+      height: 35vh;
+      margin-bottom: 1rem;
+    }
+    .thumbNails {
+      display: grid;
+    }
+  }
+  @include responsive((laptop)) {
+    .lgImg {
+      width: 49vw;
+      max-width: 480px;
+      height: 42vh;
+      max-height: 42vh;
+      margin-bottom: 0;
+      border-radius: 15px;
+    }
+    .thumbNails {
+      position: absolute;
+      bottom: 15%;
+      left: 2rem;
+      display: grid;
+    }
+  }
+}
+
+// Media Queries
+@mixin responsive($breakPoint) {
+  @if ($breakPoint == tablet) {
+    @media screen and (min-width: 650px) {
+      @content;
+    }
+  }
+  @if ($breakPoint == laptop) {
+    @media screen and (min-width: 980px) {
+      @content;
     }
   }
 }

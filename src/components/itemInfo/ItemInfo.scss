@@ -1,12 +1,14 @@
 .itemInfo {
   position: relative;
   width: 100vw;
+  max-width: 980px;
   height: 100vh;
   padding-top: 60px;
 
   @include sliderStyles(1.3rem, 50%, 100vw, 0, none);
 
   .overview {
+    max-width: 680px;
     padding: 0 1.5rem 2.5rem;
     position: relative;
     
@@ -125,6 +127,31 @@
       svg {
         margin-right: 0.6rem;
       }
+    }
+  }
+
+  @include responsive(tablet){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+
+    .overview{
+      height: 48vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &::after{
+        display: none;
+      }
+    }
+  }
+  @include responsive(laptop){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    .overview{
+      width: 50vw;
     }
   }
 }
