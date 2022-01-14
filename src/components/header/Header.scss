@@ -4,6 +4,7 @@ header {
   grid-template-columns: 1fr 1fr;
   height: 60px;
   width: 100%;
+  max-width: 980px;
   padding: 0 1.5rem;
   background: rgba(255, 255, 255, 0.858);
   backdrop-filter: blur(5px);
@@ -49,6 +50,7 @@ header {
     top: 0;
     height: 100vh;
     width: 100vw;
+    max-width: 980px;
     background: rgba(0, 0, 0, 0.7);
     visibility: hidden;
     z-index: 5;
@@ -121,6 +123,59 @@ header {
 
     &:hover {
       box-shadow: 0 0 0 2px $orange;
+    }
+  }
+
+  @include responsive(laptop){
+    .hamMenu{
+      display: none;
+    }
+
+    nav{
+      position: relative;
+      visibility: visible;
+      height: 60px;
+      background: transparent;
+
+      svg{
+        display: none;
+      }
+
+      ul{
+        width: 55%;
+        display: flex;
+        align-items: center;
+        transform: translateX(0);
+        height: 60px;
+        padding: 0;
+
+        li{
+          border: none;
+
+          &:hover{
+            a{
+              border-bottom: 1px solid $orange;
+              
+            }
+          }
+          a{
+            padding: 0 0.7rem;
+          }
+        }
+        
+      }
+    }
+
+    .cartIcon,.avi{
+      position: absolute;
+
+      &.cartIcon{
+        right: 4rem;
+      }
+      
+      &.avi{
+        right: 0;
+      }
     }
   }
 }

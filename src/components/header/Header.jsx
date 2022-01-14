@@ -97,7 +97,7 @@ const Header = ({ cartItems, setCartItems }) => {
           </svg>
         </div>
 
-        <img src={avatar} alt="" />
+        <img className="avi" src={avatar} alt="" />
       </div>
     </header>
   );
